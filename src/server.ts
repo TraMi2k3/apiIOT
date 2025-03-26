@@ -65,8 +65,11 @@ io.on('connection', (socket: Socket) => {
     });
 });
 
+// Chạy server
+const PORT = process.env.PORT || 8000;
 app.get("/", (request, response) => {
-    response.status(200).json({ message: "Hello from IOT API!" });
+    response.status(200).json({ message: "Hello from IOTIOT API!" });
 });
-
-export default app;
+server.listen(PORT, () => {
+    console.log(`🚀 Server chạy tại: http://localhost:${PORT}`);
+});
