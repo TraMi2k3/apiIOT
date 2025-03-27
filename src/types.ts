@@ -8,8 +8,10 @@ export interface SensorDataRequest {
 
 // Dữ liệu chuẩn hóa gửi về frontend
 export interface SensorData {
-    NTU: number;
-    TDS: number;
-    x: number;
-    y: number;
+    NTU: number;          // Độ đục
+    TDS: number;          // Tổng chất rắn hòa tan
+    x: number;            // Vĩ độ
+    y: number;            // Kinh độ
+    position: string;     // Tên tỉnh/thành phố
+    status: 'good' | 'fair' | 'bad';  // Trạng thái chất lượng nước
 }
