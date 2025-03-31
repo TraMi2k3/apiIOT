@@ -7,7 +7,12 @@ import { getPositionFromCoordinates } from './utils/geocode';
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server,{
+    cors: {
+        origin: "*", // Hoặc chỉ định domain cụ thể như "http://example.com"
+        methods: ["GET", "POST"]
+    }
+});
 
 app.use(express.json());
 
