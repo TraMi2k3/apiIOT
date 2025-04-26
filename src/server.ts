@@ -38,7 +38,7 @@ let latestData: SensorData | null = null;
 
 // API nhận dữ liệu từ ESP32
 //@ts-ignore
-app.post('/api/data', async (req: Request<{}, any, { do_turbid?: number; tds?: number; x?: number; y?: number }>, res: Response) => {
+app.post('api/data', async (req: Request<{}, any, { do_turbid?: number; tds?: number; x?: number; y?: number }>, res: Response) => {
     const { do_turbid, tds, x, y } = req.body;
 
     // Kiểm tra dữ liệu đầu vào
@@ -81,7 +81,7 @@ app.post('/api/data', async (req: Request<{}, any, { do_turbid?: number; tds?: n
 });
 
 // API lấy lịch sử dữ liệu
-app.get('/api/history', async (req: Request, res: Response) => {
+app.get('api/history', async (req: Request, res: Response) => {
     try {
         const limit = req.query.limit ? parseInt(req.query.limit as string) : 100;
         const history = await getSensorHistory(limit);
@@ -93,7 +93,7 @@ app.get('/api/history', async (req: Request, res: Response) => {
 });
 
 // API lấy dữ liệu mới nhất
-app.get('/api/latest', async (req: Request, res: Response) => {
+app.get('api/latest', async (req: Request, res: Response) => {
     try {
         // Lấy từ Firebase thay vì bộ nhớ để đảm bảo dữ liệu nhất quán
         const latest = await getLatestData();
